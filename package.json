@@ -1,0 +1,29 @@
+{
+  "name": "subscription-tracker",
+  "version": "1.0.0",
+  "description": "Track your Subscriptions",
+  "homepage": "https://github.com/tslmusic2/Subscription-Tracker#readme",
+  "bugs": {
+    "url": "https://github.com/tslmusic2/Subscription-Tracker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tslmusic2/Subscription-Tracker.git"
+  },
+  "license": "ISC",
+  "author": "tslmusic2",
+  "type": "module",
+  "main": "server.ts",
+  "scripts": {
+    "start": "npx tsx watch --env-file=.env server.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "pg": "^8.23.1"
+  }
+}
