@@ -11,6 +11,19 @@ export type SubscriptionRow = {
     notes: string | null
 }
 
+
+export type PostSubscription = {
+    name: string
+    cost: number
+    category: string
+    billing_cycle: string
+    next_billing_date?: string | null
+    notes?: string | null
+}
+
+
+
 export type ValidationResult<T> = 
     {valid: true, data: T} |
     {valid: false, message: string}
+

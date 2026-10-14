@@ -1,5 +1,5 @@
 
-export function isValidISODate(value: string): boolean {
+export function isValidISODate(value: unknown): value is string {
      if (typeof value !== 'string') return false
      if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
      if (value.startsWith('0000-')) return false

@@ -5,7 +5,8 @@ import { pool } from './utilities/database.ts'
 import { getSubscriptions } from './handlers/getSubscriptions.ts'
 import { getSingleSubscription } from './handlers/getSingleSubscription.ts'
 import { getReqBody } from './utilities/getReqBody.ts'
-
+import { postNewSubscription } from './handlers/postNewSubscription.ts'
+import { patchSubscription } from './handlers/patchSubscription.ts'
 
 const PORT = 8008
 
@@ -51,8 +52,18 @@ const server = http.createServer(async (req: IncomingMessage, res: ServerRespons
 
             const parsedReqBody = await getReqBody(req)
 
+            return await postNewSubscription(parsedReqBody, res)
+
         }
 
+
+        if (req.url?.startsWith('/api/subscriptions/') && req.method === 'PATCH') {
+            
+            const parsedReqBody = await getReqBody(req)
+
+            return await patchSubscription(parsedReqBody, res)
+
+        }
 
 
 
