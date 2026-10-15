@@ -11,6 +11,8 @@ export type SubscriptionRow = {
     notes: string | null
 }
 
+export type PatchSubscription = Partial<PostSubscription & {active: boolean}>
+
 
 export type PostSubscription = {
     name: string

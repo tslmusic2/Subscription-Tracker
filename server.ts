@@ -7,6 +7,7 @@ import { getSingleSubscription } from './handlers/getSingleSubscription.ts'
 import { getReqBody } from './utilities/getReqBody.ts'
 import { postNewSubscription } from './handlers/postNewSubscription.ts'
 import { patchSubscription } from './handlers/patchSubscription.ts'
+import { deleteSubscription } from './handlers/deleteSubscription.ts'
 
 const PORT = 8008
 
@@ -61,7 +62,14 @@ const server = http.createServer(async (req: IncomingMessage, res: ServerRespons
             
             const parsedReqBody = await getReqBody(req)
 
-            return await patchSubscription(parsedReqBody, res)
+            return await patchSubscription(parsedReqBody,req, res)
+
+        }
+
+
+        if (req.url?.startsWith('/api/subscriptions/') && req.method === 'DELETE') {
+
+            return await deleteSubscription(req, res)
 
         }
 
